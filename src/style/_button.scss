@@ -1,0 +1,13 @@
+.btn {
+    border: none;
+
+    padding: 15px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 18px;
+
+    &.orange {
+        background-color: rgb(255, 106, 0);
+        color: white;
+    }
+}
