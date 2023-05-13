@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="button">
-            <button class="btn orange">Button</button>
+            <a href="/cart" class="btn orange">Button</a>
         </div>
     </div>
 </header>

@@ -1,3 +1,7 @@
+a {
+    text-decoration: none
+}
+
 .btn {
     border: none;
 
@@ -6,8 +10,58 @@
     font-weight: 700;
     font-size: 18px;
 
+    min-width: 80px;
+    text-align: center;
+
+    cursor: pointer;
+
     &.orange {
         background-color: rgb(255, 106, 0);
         color: white;
+        transition: background-color .2s;
+
+        &:hover {
+            background-color: rgb(210, 88, 0);
+        }
+    }
+
+    &.orange-outline {
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(255, 106, 0);
+        border: 2px solid rgb(255, 106, 0);
+
+        transition: all .2s;
+
+        &:hover {
+            background-color: rgba(255, 106, 0, 0.1);
+        }
+    }
+
+    &.gray {
+        background-color: rgb(235, 235, 235);
+        color: #2C2C2C;
+
+        padding: 15px 20px;
+
+        transition: background-color .2s, color .2s;
+
+        &:hover,
+        &.select {
+            color: rgb(235, 235, 235);
+            background-color: #2C2C2C;
+        }
+    }
+
+    &.gray-outline {
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(235, 235, 235);
+        border: 2px solid rgb(235, 235, 235);
+
+        transition: all .2s;
+
+        &:hover {
+            color: #2C2C2C;
+            border-color: #2C2C2C;
+        }
     }
 }
