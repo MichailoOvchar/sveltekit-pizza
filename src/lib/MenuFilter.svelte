@@ -1,11 +1,15 @@
 <script>
+   import { createEventDispatcher } from "svelte";
+
+   let dispatcher = createEventDispatcher();
+
    let filters = [
-      "Всі",
-      "М'ясна",
-      "Вегетеріанська",
-      "Гриль",
-      "Гостра",
-      "Закрита",
+      { name: "Всі", value: null },
+      { name: "М'ясна", value: 0 },
+      { name: "Вегетеріанська", value: 1 },
+      { name: "Гриль", value: 2 },
+      { name: "Гостра", value: 3 },
+      { name: "Закрита", value: 4 },
    ];
 
    let selectFilter = 0;
@@ -18,9 +22,11 @@
          class:select={index == selectFilter}
          on:click={function () {
             selectFilter = index;
+
+            dispatcher("select-filter", { value: item.value });
          }}
       >
-         {item}
+         {item.name}
       </button>
    {/each}
 </div>

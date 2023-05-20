@@ -1,11 +1,10 @@
 <script>
    import CartPizzaBlock from "../../lib/CartPizzaBlock.svelte";
-
-   let cartList = [];
+   import { cart } from "../../lib/store/store";
 </script>
 
 <section id="cart">
-   {#if cartList.length == 0}
+   {#if $cart.length == 0}
       <div class="container empty">
          <div class="title">Корзина пустая 😕</div>
          <div class="text">
@@ -29,8 +28,14 @@
       </div>
 
       <div class="container list">
-         {#each cartList as item}
-            <CartPizzaBlock />
+         {#each $cart ?? [] as item}
+            <CartPizzaBlock
+               image={item.image}
+               name={item.name}
+               price={item.price}
+               count={item.count}
+               parametrs={item.parametrs}
+            />
          {/each}
       </div>
 

@@ -20,6 +20,8 @@
 
     .parametrs {
 
+        margin-top: auto;
+
         padding: 10px;
         background-color: rgb(222, 222, 222);
         border-radius: 15px;
@@ -40,6 +42,11 @@
 
                 transition: background-color .2s;
                 cursor: pointer;
+
+                &.disabled {
+                    opacity: 0.5;
+                    pointer-events: none;
+                }
 
                 &.select {
                     background-color: white;

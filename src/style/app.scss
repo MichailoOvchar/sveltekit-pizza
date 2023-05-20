@@ -116,7 +116,10 @@ section#menu {
     .container {
         flex-wrap: wrap;
         gap: 20px;
-        justify-content: space-between;
+
+        .pizza-block {
+            width: calc(25% - 15px);
+        }
     }
 }
 
