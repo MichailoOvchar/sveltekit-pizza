@@ -1,12 +1,21 @@
 <script>
     import "../style/app.scss";
     import { cart } from "../lib/store/store.js";
+    import { onMount } from "svelte";
 
     let cartPrice = 0;
+    let readedFromStorage = false;
 
     $: cartPrice = calculateCartPrice($cart);
 
     function calculateCartPrice(ourCart) {
+        if (readedFromStorage) {
+            try {
+                let string = JSON.stringify(ourCart);
+                localStorage.setItem("cart", string);
+            } catch (e) {}
+        }
+
         let price = 0;
 
         ourCart.forEach((element) => {
@@ -15,6 +24,17 @@
 
         return price;
     }
+
+    onMount(function () {
+        try {
+            let string = localStorage.getItem("cart");
+            let obj = JSON.parse(string);
+
+            cart.set(obj);
+        } catch (e) {}
+
+        readedFromStorage = true;
+    });
 </script>
 
 <header>
